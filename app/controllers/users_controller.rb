@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+  end
+  
   def new
     @user = User.new
   end
@@ -6,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # 保存の成功した場合の処理
+      redirect_to user_path(@user.id)
     else
       render :new
     end
