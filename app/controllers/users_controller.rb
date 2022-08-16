@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @pets = Pet.all
+  end
+
   private
 
   def user_params
