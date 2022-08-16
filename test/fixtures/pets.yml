@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyText
+  gender: MyString
+  type: 
+  prefectures_name: 1
+  content: MyText
+
+two:
+  image: MyText
+  gender: MyString
+  type: 
+  prefectures_name: 1
+  content: MyText

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @pet.image %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @pet.gender %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @pet.type %>
+</p>
+
+<p>
+  <strong>Prefectures name:</strong>
+  <%= @pet.prefectures_name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @pet.content %>
+</p>
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>
