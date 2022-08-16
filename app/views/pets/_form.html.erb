@@ -13,22 +13,24 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_area :image %>
+    <%= image_tag(pet.image.url) if pet.image && pet.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.text_field :gender %>
+    <%= form.select :gender, options_for_select(Pet.genders.keys.to_a), {prompt: "選択してください"}, class: "prefecture-select" %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :animal_type %>
+    <%= form.text_field :animal_type %>
   </div>
 
   <div class="field">
     <%= form.label :prefectures_name %>
-    <%= form.number_field :prefectures_name %>
+    <%= form.select :prefectures_name, options_for_select(Pet.prefectures_names.keys.to_a), {prompt: "選択してください"}, class: "prefecture-select" %>
   </div>
 
   <div class="field">

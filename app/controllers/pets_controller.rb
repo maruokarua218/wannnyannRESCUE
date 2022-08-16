@@ -65,6 +65,6 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:image, :gender, :type, :prefectures_name, :content)
+      params.require(:pet).permit(:image, :image_cache, :gender, :animal_type, :prefectures_name, :content)
     end
 end
