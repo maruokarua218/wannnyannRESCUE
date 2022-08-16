@@ -22,14 +22,17 @@
         <td><%= pet.animal_type %></td>
         <td><%= pet.prefectures_name %></td>
         <td><%= pet.content %></td>
+      <% if current_user.client == false %>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
         <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Pet', new_pet_path %>
+<% if current_user.client == false %>
+ <%= link_to 'New Pet', new_pet_path %>
+<% end %>
