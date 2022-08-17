@@ -1,4 +1,5 @@
 class Pet < ApplicationRecord
+  belongs_to :user
   validates :image, presence: true
   validates :gender, presence: true
   validates :animal_type, presence: true
