@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>name</th>
       <th>Image</th>
       <th>Gender</th>
       <th>Type</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
+        <td><%= pet.user.name %></td>
         <td><%= image_tag pet.image.url %></td>
         <td><%= pet.gender %></td>
         <td><%= pet.animal_type %></td>

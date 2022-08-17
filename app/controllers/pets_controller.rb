@@ -23,6 +23,7 @@ class PetsController < ApplicationController
   # POST /pets or /pets.json
   def create
     @pet = Pet.new(pet_params)
+    @pet.user_id = current_user.id
 
     respond_to do |format|
       if @pet.save
@@ -57,6 +58,12 @@ class PetsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def confirm
+    @pet = Pet.new(pet_params)
+    @pet.user_id = current_user.id
+    render :new if @pet.invalid?
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.
