@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>name</th>
       <th>Image</th>
       <th>Gender</th>
       <th>Type</th>
@@ -17,16 +18,17 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
+        <td><%= pet.user.name %></td>
         <td><%= image_tag pet.image.url %></td>
         <td><%= pet.gender %></td>
         <td><%= pet.animal_type %></td>
         <td><%= pet.prefectures_name %></td>
         <td><%= pet.content %></td>
-      <% if current_user.client == false %>
         <td><%= link_to 'Show', pet %></td>
+     <% if current_user.client == false %>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
         <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+    <% end %>
       </tr>
     <% end %>
   </tbody>
