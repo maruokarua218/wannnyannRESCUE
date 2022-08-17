@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[ show edit update destroy ]
+  before_action :set_pet, only: %i[ show edit update destroy]
 
   # GET /pets or /pets.json
   def index
@@ -9,6 +9,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1 or /pets/1.json
   def show
+    @favorite = current_user.favorites.find_by(pet_id: @pet.id)
   end
 
   # GET /pets/new
@@ -63,7 +64,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.user_id = current_user.id
     render :new if @pet.invalid?
-  end  
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
