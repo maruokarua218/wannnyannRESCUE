@@ -13,11 +13,19 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+            <% if user.id != current_user.id %>
+              <td>
+                <div class="item">
+                  <%= link_to user.name, user %>
+                  <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
+                </div>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 
 <% if @user == current_user %>
   <h1>マイページ</h1>
