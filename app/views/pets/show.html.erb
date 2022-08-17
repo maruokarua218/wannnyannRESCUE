@@ -33,5 +33,12 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<% if current_user.client == true %>
+  <%= link_to 'Back', favorites_path %>
+<% end %>
+
+
+<% if current_user.client == false %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+  <%= link_to 'Back', pets_path %>
+<% end %>
