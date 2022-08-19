@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   root 'pets#index'
-  resources :pets
+  resources :pets do
+    collection do
+      get 'search'
+    end
+  end  
   get 'sessions/new'
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do

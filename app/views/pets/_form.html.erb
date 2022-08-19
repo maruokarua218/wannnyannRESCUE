@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.select :gender, options_for_select(Pet.genders.keys.to_a), {prompt: "選択してください"}, class: "prefecture-select" %>
+    <%= form.select :gender, options_for_select(Pet.genders_i18n.invert, selected: form.object.gender), {prompt: "選択してください"}, class: "prefecture-select" %>
   </div>
 
   <div class="field">

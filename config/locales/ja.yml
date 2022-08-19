@@ -1,0 +1,8 @@
+ja:
+  enums:
+    pet:
+      gender:
+        female: "女の子"
+        male: "男の子"
+        unkwone: "不明"
+        done: "完了"

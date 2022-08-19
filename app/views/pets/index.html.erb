@@ -2,6 +2,12 @@
 
 <h1>Pets</h1>
 
+<%= search_form_for @q, url: search_pets_path do |f| %>
+  <%= f.label :gender_cont, 'キーワード検索' %>
+  <%= f.search_field :gender_cont %>
+  <%= f.submit '検索' %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -20,15 +26,15 @@
       <tr>
         <td><%= pet.user.name %></td>
         <td><%= image_tag pet.image.url %></td>
-        <td><%= pet.gender %></td>
+        <td><%= pet.gender_i18n %></td>
         <td><%= pet.animal_type %></td>
         <td><%= pet.prefectures_name %></td>
         <td><%= pet.content %></td>
         <td><%= link_to 'Show', pet %></td>
-     <% if current_user.client == false %>
-        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
+        <% if current_user.client == false %>
+          <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+          <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
