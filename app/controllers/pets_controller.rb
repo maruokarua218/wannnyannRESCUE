@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[ show edit update destroy]
+  before_action :set_q, only: [:index, :search]
 
   # GET /pets or /pets.json
   def index
@@ -66,14 +67,21 @@ class PetsController < ApplicationController
     render :new if @pet.invalid?
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pet
-      @pet = Pet.find(params[:id])
-    end
+  def search
+    @results = @q.result
+  end
 
-    # Only allow a list of trusted parameters through.
-    def pet_params
-      params.require(:pet).permit(:image, :image_cache, :gender, :animal_type, :prefectures_name, :content)
-    end
+  private
+
+  def set_q
+    @q = Pet.ransack(params[:q])
+  end
+
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
+
+  def pet_params
+    params.require(:pet).permit(:image, :image_cache, :gender, :animal_type, :prefectures_name, :content, :gender, :animal_type, :prefectures_name)
+  end
 end

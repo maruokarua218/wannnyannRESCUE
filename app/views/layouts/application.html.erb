@@ -15,6 +15,7 @@
     <% end %>
 
     <% if logged_in? %>
+      <%= link_to "ペット一覧", root_path %>
       <%= link_to 'ユーザー一覧', users_path if logged_in? %>
       <%= link_to "メッセージ", user_path(current_user.id) %>
       <%= link_to "Logout", session_path(current_user.id), method: :delete %>

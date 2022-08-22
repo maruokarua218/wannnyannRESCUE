@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1>新規登録</h1>
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -27,5 +27,5 @@
   <%= f.label :client %>
   <%= f.select :client, [["犬・猫を譲りたい", "false"],["犬・猫を引き取りたい", "true"]],include_blank: "選択" %>
 
-  <%= f.submit "Create my account" %>
+  <%= f.submit "アカウントを作成" %>
 <% end %>

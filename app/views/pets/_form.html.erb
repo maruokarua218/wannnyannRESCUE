@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.select :gender, options_for_select(Pet.genders.keys.to_a), {prompt: "選択してください"}, class: "prefecture-select" %>
+    <%= form.select :gender, options_for_select(Pet.genders_i18n.invert, selected: form.object.gender), {prompt: "選択してください"}, class: "prefecture-select" %>
   </div>
 
   <div class="field">
@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= form.label :prefectures_name %>
-    <%= form.select :prefectures_name, options_for_select(Pet.prefectures_names.keys.to_a), {prompt: "選択してください"}, class: "prefecture-select" %>
+    <%= form.select :prefectures_name, Pet.prefectures_names.keys.map {|k| [I18n.t("enums.pet.prefectures_name.#{k}"), k]} %>
   </div>
 
   <div class="field">
