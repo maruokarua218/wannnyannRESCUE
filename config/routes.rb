@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-  end  
+  end
   get 'sessions/new'
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do

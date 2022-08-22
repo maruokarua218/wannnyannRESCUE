@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>写真:</strong>
   <%= image_tag @pet.image.url if @pet.image.present? %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
-  <%= @pet.gender %>
+  <strong>性別:</strong>
+  <%= @pet.gender_i18n %>
 </p>
 
 <p>
-  <strong>Type:</strong>
+  <strong>種類:</strong>
   <%= @pet.animal_type %>
 </p>
 
 <p>
-  <strong>Prefectures name:</strong>
-  <%= @pet.prefectures_name %>
+  <strong>県名:</strong>
+  <%= @pet.prefectures_name_i18n %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>その他の情報:</strong>
   <%= @pet.content %>
 </p>
 
@@ -34,11 +34,11 @@
 <% end %>
 
 <% if current_user.client == true %>
-  <%= link_to 'Back', favorites_path %>
+  <%= link_to '戻る', favorites_path %>
 <% end %>
 
 
 <% if current_user.client == false %>
-  <%= link_to 'Edit', edit_pet_path(@pet) %> |
-  <%= link_to 'Back', pets_path %>
+  <%= link_to '編集', edit_pet_path(@pet) %> |
+  <%= link_to '戻る', pets_path %>
 <% end %>
