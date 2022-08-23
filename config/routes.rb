@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   root 'pets#index'
+  post 'guest_login', to: "guest_sessions#create"
+  resources :sessions, only: [:new, :create, :destroy]
   resources :pets do
     collection do
       get 'search'

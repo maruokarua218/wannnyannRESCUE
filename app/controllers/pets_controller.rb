@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[ show edit update destroy]
   before_action :set_q, only: [:index, :search]
+  skip_before_action :login_required, only: [:index, :show]
 
   # GET /pets or /pets.json
   def index
