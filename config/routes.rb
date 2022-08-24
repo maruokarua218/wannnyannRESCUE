@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   root 'pets#index'
   post 'guest_login', to: "guest_sessions#create"
+  post 'admin_guest_login', to: "admin_guest_sessions#create"
   resources :sessions, only: [:new, :create, :destroy]
   resources :pets do
     collection do
@@ -20,5 +21,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :conversations do
   resources :messages
+  end
+  namespace :admin do
+   resources :users
   end
 end
