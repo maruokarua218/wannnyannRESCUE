@@ -15,6 +15,8 @@
     </tr>
   </thead>
 
+  <%= link_to '戻る', admin_users_path %>
+
   <tbody>
     <% @user_pets.each do |pet| %>
       <tr>
@@ -30,7 +32,6 @@
           <td><%= link_to '削除', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-      <%= link_to '戻る', admin_users_path %>
     <% end %>
   </tbody>
 </table>
