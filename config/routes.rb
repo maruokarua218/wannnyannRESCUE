@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :conversations do
   resources :messages
   end
+  namespace :admin do
+   resources :users
+  end
 end
