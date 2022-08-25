@@ -11,7 +11,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1 or /pets/1.json
   def show
-    @favorite = current_user.favorites.find_by(pet_id: @pet.id)
+    @favorite = current_user.favorites.find_by(pet_id: @pet.id) if current_user
   end
 
   # GET /pets/new
@@ -30,7 +30,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully created." }
+        format.html { redirect_to pet_url(@pet), notice: "ペットを投稿しました！" }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully updated." }
+        format.html { redirect_to pet_url(@pet), notice: "ペット情報を更新しました！" }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class PetsController < ApplicationController
     @pet.destroy
 
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: "Pet was successfully destroyed." }
+      format.html { redirect_to pets_url, notice: "投稿を削除しました！" }
       format.json { head :no_content }
     end
   end

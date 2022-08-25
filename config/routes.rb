@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  root 'pages#home'
   get 'relationships/create'
   get 'relationships/destroy'
-  get 'pages/home'
-  root 'pets#index'
   post 'guest_login', to: "guest_sessions#create"
   post 'admin_guest_login', to: "admin_guest_sessions#create"
   resources :sessions, only: [:new, :create, :destroy]
