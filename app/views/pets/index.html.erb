@@ -34,7 +34,7 @@
         <td><%= pet.content %></td>
         <td><%= link_to '詳細', pet %></td>
         <% if current_user && current_user.client == false %>
-          <td><%= link_to '編集', edit_pet_path(pet) %></td>
+          <td class="spec_pet"><%= link_to '編集', edit_pet_path(pet) %></td>
           <td><%= link_to '削除', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
