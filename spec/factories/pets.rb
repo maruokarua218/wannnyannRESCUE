@@ -4,6 +4,7 @@ FactoryBot.define do
     gender { 'female' }
     animal_type { '柴犬' }
     prefectures_name { 'hokkaido' }
-    content {'おとなしい性格です'}
+    content { 'おとなしい性格です' }
+    user{ FactoryBot.create(:user)}
   end
 end
