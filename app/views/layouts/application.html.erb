@@ -9,22 +9,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <%= link_to "ペット一覧", pets_path %>
+  <header>
+   <ul>
+    <li class="left1">WannnyannRESCUE</li>
+    <li class="right1"><%= link_to "ペット一覧", pets_path %></li>
     <% if logged_in? %>
-      <%= link_to 'ユーザー一覧', users_path if logged_in? %>
-      <%= link_to "メッセージ", user_path(current_user.id) %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+    <li class="right2"><%= link_to 'ユーザー一覧', users_path if logged_in? %></li>
+    <li class="right2"><%= link_to "メッセージ", user_path(current_user.id) %></li>
+    <li class="right2"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
     <% else %>
-      <%= link_to "新規登録", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-      <%= link_to "ゲストログイン", guest_login_path, method: :post %>
-      <%= link_to "ゲスト管理者ログイン", admin_guest_login_path, method: :post %>
+    <li class="right2"><%= link_to "新規登録", new_user_path %></li>
+    <li class="right2"><%= link_to "ログイン", new_session_path %></li>
+    <li class="right2"><%= link_to "ゲストログイン", guest_login_path, method: :post %></li>
+    <li class="right2"><%= link_to "ゲスト管理者ログイン", admin_guest_login_path, method: :post %></li>
     <% end %>
-
+  </ul>
+</header>
+  <body>
     <%= yield %>
   </body>
+  <footer>
+    <p>製作者：rua maruoka</p>
+  </footer>
 </html>
