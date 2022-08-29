@@ -1,10 +1,7 @@
 <h1>ユーザー編集</h1>
-
-<%= link_to '戻る', admin_users_path %>
-
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <h2><%= pluralize(@user.errors.count, "エラー") %> ユーザーを編集<%= @user.name %>できません！</h2>
     <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -26,8 +23,10 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.label :admin %>
-  <%= f.select :admin, [["管理者じゃないです", "false"],["管理者です", "true"]],include_blank: "選択" %>
+  <%= f.label :管理者権限 %>
+  <%= f.select :admin, [["管理者じゃないです", "false"],["管理者です", "true"]],include_blank: "選択" %><br><br>
 
-  <%= f.submit "ユーザーを編集する" %>
+  <%= f.submit "ユーザーを編集する" %><br><br>
+
+  <%= link_to '戻る', admin_users_path %>
 <% end %>

@@ -14,9 +14,12 @@
     <li class="left1">WannnyannRESCUE</li>
     <li class="right1"><%= link_to "ペット一覧", pets_path %></li>
     <% if logged_in? %>
-    <li class="right2"><%= link_to 'ユーザー一覧', users_path if logged_in? %></li>
+    <li class="right2"><%= link_to "ユーザー一覧", users_path if logged_in? %></li>
     <li class="right2"><%= link_to "メッセージ", user_path(current_user.id) %></li>
     <li class="right2"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+    <% if current_user.admin == true %>
+      <li class="right2"><%= link_to "管理画面", admin_users_path(current_user.id) %>
+    <% end %>
     <% else %>
     <li class="right2"><%= link_to "新規登録", new_user_path %></li>
     <li class="right2"><%= link_to "ログイン", new_session_path %></li>

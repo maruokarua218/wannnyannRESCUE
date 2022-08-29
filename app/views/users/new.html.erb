@@ -3,7 +3,7 @@
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <h2><%= pluralize(@user.errors.count, "エラー") %> 新規登録が<%= @user.name %>できません！</h2>
     <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -28,5 +28,5 @@
   <%= f.label :選択してください %>
   <%= f.select :client, [["犬・猫を譲りたい", "false"],["犬・猫を引き取りたい", "true"]],include_blank: "選択" %><br><br>
 
-  <%= f.submit "アカウントを作成" %>
+  <%= f.submit "登録" %>
 <% end %>
