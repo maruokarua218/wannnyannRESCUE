@@ -24,3 +24,26 @@ Pet.create(user: 金子, image: File.open("./app/assets/images/dog3.jpg"), gende
 Pet.create(user: 金子, image: File.open("./app/assets/images/cat2.jpg"), gender: 'female', animal_type: 'ロシアンブルー', prefectures_name: 'hokkaido', content: 'とても綺麗な目がチャームポイントです。少し警戒心が強いです。')
 Pet.create(user: 齋藤, image: File.open("./app/assets/images/dog4.jpg"), gender: 'male', animal_type: '柴犬', prefectures_name: 'saitama', content: '人懐っこいです。お散歩が大好きです。')
 Pet.create(user: 森塚, image: File.open("./app/assets/images/dog5.jpg"), gender: 'unknown', animal_type: 'トイプードル', prefectures_name: 'tokyo', content: '人懐っこい、寝るのが大好きです。')
+
+Conversation.create(sender_id: 9, recipient_id: 10)
+Conversation.find(1).messages.create(user_id: 10, conversation_id: 1, body:"こんにちは！")
+Conversation.find(1).messages.create(user_id: 9, conversation_id: 1, body:"こんにちは、初めまして！")
+Conversation.find(1).messages.create(user_id: 10, conversation_id: 1, body:"ワンちゃんはどのくらいの大きさですか？")
+Conversation.find(1).messages.create(user_id: 9, conversation_id: 1, body:"60cm体重は5kgです！")
+Conversation.find(1).messages.create(user_id: 10, conversation_id: 1, body:"教えていただき有難うございます！")
+
+5.times do |n|
+  follower_id = "1"
+  if n == 0
+    followed_id = "7"
+  else
+    followed_id = "#{n + 1}"
+  end
+  Relationship.create(followed_id: followed_id, follower_id: follower_id)
+end
+
+5.times do |n|
+  User.all.ids.each do |user_id|
+    Favorite.create(user_id: user_id, pet_id: rand(1..5))
+  end
+end

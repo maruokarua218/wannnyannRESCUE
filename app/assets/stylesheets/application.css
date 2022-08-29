@@ -90,3 +90,37 @@
 div {
   display: block;
 }
+
+.button005  {
+   border-radius: 3px;
+   position: relative;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin: 0 auto;
+   max-width: 130px;
+   color: #FFF;
+   transition: 0.3s ease-in-out;
+   font-weight: 600;
+   background: #DDDDDD;
+   background: #DDDDDD;
+}
+
+.button006 {
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 130px;
+  color: #FFF;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+  background: #AAAAAA;
+  background: #AAAAAA;
+}
+
+.messeage_field {
+  margin: 100px 100px;
+}
