@@ -17,11 +17,13 @@
  html {
    position: relative;
    min-height: 100%;
+   position: relative;
  }
 
  body {
    text-align: center;
    background-color: #DCDCDC;
+   margin: 0 0 55px 0;
  }
 
 
@@ -80,5 +82,11 @@
    font-size: 0.8rem;
    color: white;
    width: 100%;
-   padding: 10px 0;
+   padding: 0;
+   position: absolute;
+   bottom: 0;
  }
+
+div {
+  display: block;
+}

@@ -21,6 +21,12 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @pet = Pet.find(params[:id])
+    if @pet.user_id == current_user.id
+      render "edit"
+    else
+      redirect_to pets_path
+    end
   end
 
   # POST /pets or /pets.json
@@ -55,10 +61,11 @@ class PetsController < ApplicationController
   # DELETE /pets/1 or /pets/1.json
   def destroy
     @pet.destroy
-
-    respond_to do |format|
-      format.html { redirect_to pets_url, notice: "投稿を削除しました！" }
-      format.json { head :no_content }
+    if @pet.user_id == current_user.id
+      respond_to do |format|
+        format.html { redirect_to pets_url, notice: "投稿を削除しました！" }
+        format.json { head :no_content }
+      end
     end
   end
 

@@ -17,7 +17,9 @@ class User < ApplicationRecord
   end
 
   def unfollow!(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
+    unless self == other_user
+     active_relationships.find_by(followed_id: other_user.id).destroy
+   end
   end
 
   validates :name,  presence: true, length: { maximum: 30 }
