@@ -18,9 +18,9 @@
       <tr>
         <td><%= favorite.pet.user.name %></td>
         <td><%= image_tag favorite.pet.image.url %></td>
-        <td><%= favorite.pet.gender %></td>
+        <td><%= favorite.pet.gender_i18n %></td>
         <td><%= favorite.pet.animal_type %></td>
-        <td><%= favorite.pet.prefectures_name %></td>
+        <td><%= favorite.pet.prefectures_name_i18n %></td>
         <td><%= favorite.pet.content %></td>
         <td><%= link_to '詳細', favorite.pet %></td>
         <% end %>
